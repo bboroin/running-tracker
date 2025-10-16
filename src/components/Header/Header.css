@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  display: flex;
+  gap: 15px;
+}
+
+.header-title img {
+  width: 40px;
+  height: 40px;
+}
+.header-title h1 {
+  background: linear-gradient(135deg, #00aeef, #9b5eff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

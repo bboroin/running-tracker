@@ -1,0 +1,38 @@
+.record-form {
+  display: flex;
+  gap: 15px;
+  align-items: end;
+  margin: 20px 0;
+  padding: 20px;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.record-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.record-form input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.record-form button {
+  background: linear-gradient(135deg, #00aeef, #9b5eff);
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 8px 15px;
+  transition: transform 0.2s ease;
+}
+.record-form button:hover {
+  transform: translateY(-3px);
+}
+.record-form button:active {
+  transform: translateY(0);
+}

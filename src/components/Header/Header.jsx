@@ -8,7 +8,6 @@ const Header = () => {
         <img src="favicon.ico" alt="로고" />
         <h1>Running Tracker</h1>
       </div>
-      <div>정렬 기준</div>
     </div>
   );
 };

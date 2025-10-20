@@ -1,23 +1,61 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import RecordItem from "./RecordItem";
 import "./RecordList.css";
 
 const RecordList = ({ records }) => {
+  const [sortOption, setSortOption] = useState("date");
+
+  const sortedRecords = useMemo(() => {
+    const sorted = [...records];
+    switch (sortOption) {
+      case "total":
+        return sorted.sort(
+          (a, b) =>
+            Number(b.running) +
+            Number(b.walking) -
+            (Number(a.running) + Number(a.walking))
+        );
+      case "running":
+        return sorted.sort((a, b) => b.running - a.running);
+      case "date":
+      default:
+        return sorted.sort((a, b) => new Date(b.date) - new Date(a.date));
+    }
+  }, [records, sortOption]);
+
   return (
-    <div className="record-list">
-      <div className="record-list__header">
-        <div className="record-col date">날짜</div>
-        <div className="record-col run">뛴 거리</div>
-        <div className="record-col walk">걸은 거리</div>
-        <div className="record-col rest">쉬는 시간</div>
+    <>
+      <div className="toolbar">
+        <label className="sort">
+          <span className="sort-label">정렬 : </span>
+          <select
+            value={sortOption}
+            onChange={(e) => setSortOption(e.target.value)}
+          >
+            <option value="date">날짜</option>
+            <option value="total">총 거리</option>
+            <option value="running">러닝 거리</option>
+          </select>
+        </label>
       </div>
 
-      <div className="record-list__body">
-        {records.map((record) => (
-          <RecordItem key={record.id} record={record} />
-        ))}
+      <div className="record-list">
+        <div className="record-list__header">
+          <div className="record-col date">날짜</div>
+          <div className="record-col run">러닝</div>
+          <div className="record-col walk">걷기</div>
+          <div className="record-col rest">휴식</div>
+          <div className="record-col total">총 합</div>
+        </div>
+
+        <div className="record-list__body">
+          {sortedRecords.map((record) => {
+            const total = Number(record.running) + Number(record.walking);
+            return <RecordItem key={record.id} record={record} total={total} />;
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

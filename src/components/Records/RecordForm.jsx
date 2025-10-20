@@ -20,6 +20,14 @@ const RecordForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // 중복 날짜 검사
+    const exists = records.some((r) => r.date === formData.date);
+    if (exists) {
+      alert("해당 날짜의 기록이 존재합니다. 다른 날짜를 선택해주세요.");
+      return;
+    }
+
     const newRecord = {
       id: Date.now(),
       date: formData.date,

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./RecordForm.css";
+import RecordList from "./RecordList";
 
 const INITIAL_FORM = {
   date: "",
@@ -10,6 +11,7 @@ const INITIAL_FORM = {
 
 const RecordForm = () => {
   const [formData, setFormData] = useState(INITIAL_FORM);
+  const [records, setRecords] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,7 +27,7 @@ const RecordForm = () => {
       walking: formData.walkDistance,
       rest: formData.restTime,
     };
-    console.log(newRecord);
+    setRecords((prev) => [...prev, newRecord]);
     setFormData(INITIAL_FORM);
   };
 
@@ -66,6 +68,7 @@ const RecordForm = () => {
             step={0.1}
           />
         </label>
+
         <label>
           <span>쉬는 시간 (분)</span>
           <input
@@ -75,8 +78,11 @@ const RecordForm = () => {
             onChange={handleChange}
           />
         </label>
+
         <button type="submit">추가</button>
       </form>
+
+      <RecordList records={records} />
     </div>
   );
 };

@@ -1,0 +1,51 @@
+.record-list {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.record-list__header {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #f7fbff, #f6f0ff);
+  border-bottom: 2px solid #eee;
+}
+
+.record-list__header .record-col {
+  font-weight: 700;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(135deg, #00aeef, #9b5eff);
+}
+
+.record-list__body {
+  display: flex;
+  flex-direction: column;
+}
+
+.record-item {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f1f1;
+  background: #fff;
+}
+.record-item:hover {
+  background: #f9fbff;
+}
+
+.record-col {
+  font-size: 14px;
+  color: #333;
+}
+.record-col.date {
+  font-weight: 600;
+}

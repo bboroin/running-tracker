@@ -40,12 +40,18 @@ const RecordList = ({ records }) => {
         </div>
 
         <div className="record-list__body">
-          {sortedRecords.map((record) => {
-            const total = (
-              Number(record.running) + Number(record.walking)
-            ).toFixed(1);
-            return <RecordItem key={record.id} record={record} total={total} />;
-          })}
+          {sortedRecords.length > 0 ? (
+            sortedRecords.map((record) => {
+              const total = (
+                Number(record.running) + Number(record.walking)
+              ).toFixed(1);
+              return (
+                <RecordItem key={record.id} record={record} total={total} />
+              );
+            })
+          ) : (
+            <p className="record-list__empty">저장된 기록이 없습니다.</p>
+          )}
         </div>
       </div>
     </>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./RecordForm.css";
 import RecordList from "./RecordList";
 
@@ -9,9 +9,25 @@ const INITIAL_FORM = {
   restTime: 0,
 };
 
+const STORAGE_KEY = "runningRecords";
+
 const RecordForm = () => {
   const [formData, setFormData] = useState(INITIAL_FORM);
-  const [records, setRecords] = useState([]);
+
+  // localStorage에서 초기값을 읽음 (lazy initializer)
+  const [records, setRecords] = useState(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  // records 변경 시 저장
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+  }, [records]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

@@ -41,7 +41,9 @@ const RecordList = ({ records }) => {
 
         <div className="record-list__body">
           {sortedRecords.map((record) => {
-            const total = Number(record.running) + Number(record.walking);
+            const total = (
+              Number(record.running) + Number(record.walking)
+            ).toFixed(1);
             return <RecordItem key={record.id} record={record} total={total} />;
           })}
         </div>

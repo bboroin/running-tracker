@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react";
 import RecordItem from "./RecordItem";
+import SortSelect from "./SortSelect";
 import "./RecordList.css";
 
 const RecordList = ({ records }) => {
@@ -26,17 +27,7 @@ const RecordList = ({ records }) => {
   return (
     <>
       <div className="toolbar">
-        <label className="sort">
-          <span className="sort-label">정렬 : </span>
-          <select
-            value={sortOption}
-            onChange={(e) => setSortOption(e.target.value)}
-          >
-            <option value="date">날짜</option>
-            <option value="total">총 거리</option>
-            <option value="running">러닝 거리</option>
-          </select>
-        </label>
+        <SortSelect value={sortOption} onChange={setSortOption} />
       </div>
 
       <div className="record-list">

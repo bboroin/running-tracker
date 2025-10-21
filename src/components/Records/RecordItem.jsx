@@ -1,4 +1,5 @@
 import React from "react";
+import "./RecordItem.css";
 
 const RecordItem = ({ record, total }) => {
   const { date, running, walking, rest } = record;
@@ -9,6 +10,11 @@ const RecordItem = ({ record, total }) => {
       <div className="record-col walk">{walking} km</div>
       <div className="record-col rest">{rest} 분</div>
       <div className="record-col total">{total} km</div>
+
+      <div className="record-btns">
+        <button className="btn btn-edit">수정</button>
+        <button className="btn btn-delete">삭제</button>
+      </div>
     </div>
   );
 };

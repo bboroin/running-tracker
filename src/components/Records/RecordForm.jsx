@@ -103,7 +103,9 @@ const RecordForm = () => {
           />
         </label>
 
-        <button type="submit">추가</button>
+        <button type="submit" className="btn btn-submit">
+          추가
+        </button>
       </form>
 
       <RecordList records={records} />

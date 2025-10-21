@@ -22,17 +22,21 @@
   border-radius: 5px;
 }
 
-.record-form button {
-  background: linear-gradient(135deg, #00aeef, #9b5eff);
-  color: white;
+.btn {
   font-weight: 600;
   border-radius: 8px;
-  padding: 8px 15px;
-  transition: transform 0.2s ease;
+  transition: transform 0.5s ease;
+  white-space: nowrap;
 }
-.record-form button:hover {
+.btn:hover {
   transform: translateY(-3px);
 }
-.record-form button:active {
+.btn:active {
   transform: translateY(0);
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, #00aeef, #9b5eff);
+  color: white;
+  padding: 8px 15px;
 }

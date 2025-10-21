@@ -50,3 +50,17 @@
   background: #ff6b6b;
   color: #fff;
 }
+
+.btn-save {
+  background: #3f3f3f8c;
+  color: white;
+}
+
+.editing .record-btns {
+  opacity: 1;
+}
+.editing input {
+  width: 60px;
+  height: 30px;
+  margin-right: 3px;
+}

@@ -7,15 +7,34 @@ const RecordItemEdit = ({ record, onCancel }) => {
     <div className="record-item editing">
       <div className="record-col date">{date}</div>
       <div className="record-col run">
-        <input type="number" name="running" min="0" step="0.1" />
+        <input
+          type="number"
+          name="running"
+          min="0"
+          step="0.1"
+          className="record-input"
+        />
         km
       </div>
       <div className="record-col walk">
-        <input type="number" name="walking" min="0" step="0.1" />
+        <input
+          type="number"
+          name="walking"
+          min="0"
+          step="0.1"
+          className="record-input"
+        />
         km
       </div>
       <div className="record-col rest">
-        <input type="number" name="rest" min="0" step="1" />분
+        <input
+          type="number"
+          name="rest"
+          min="0"
+          step="1"
+          className="record-input"
+        />
+        분
       </div>
       <div className="record-col total">km</div>
 

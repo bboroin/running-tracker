@@ -9,13 +9,13 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.record-form label {
+.record-label {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.record-form input {
+.record-input {
   flex: 1;
   padding: 8px 10px;
   border: 1px solid #ddd;

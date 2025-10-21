@@ -62,7 +62,7 @@ const RecordForm = () => {
   return (
     <div>
       <form className="record-form" onSubmit={handleSubmit}>
-        <label>
+        <label className="record-label">
           <span>날짜</span>
           <input
             type="date"
@@ -70,10 +70,11 @@ const RecordForm = () => {
             value={formData.date}
             onChange={handleChange}
             required
+            className="record-input"
           />
         </label>
 
-        <label>
+        <label className="record-label">
           <span>뛴 거리 (km)</span>
           <input
             type="number"
@@ -82,10 +83,11 @@ const RecordForm = () => {
             onChange={handleChange}
             min={0}
             step={0.1}
+            className="record-input"
           />
         </label>
 
-        <label>
+        <label className="record-label">
           <span>걸은 거리 (km)</span>
           <input
             type="number"
@@ -94,16 +96,18 @@ const RecordForm = () => {
             onChange={handleChange}
             min={0}
             step={0.1}
+            className="record-input"
           />
         </label>
 
-        <label>
+        <label className="record-label">
           <span>쉬는 시간 (분)</span>
           <input
             type="number"
             name="restTime"
             value={formData.restTime}
             onChange={handleChange}
+            className="record-input"
           />
         </label>
 

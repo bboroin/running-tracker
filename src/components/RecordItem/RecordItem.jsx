@@ -1,23 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "./RecordItem.css";
+import RecordItemView from "./RecordItemView";
+import RecordItemEdit from "./RecordItemEdit";
 
 const RecordItem = ({ record, total, onDelete }) => {
-  const { id, date, running, walking, rest } = record;
-  return (
-    <div className="record-item">
-      <div className="record-col date">{date}</div>
-      <div className="record-col run">{running} km</div>
-      <div className="record-col walk">{walking} km</div>
-      <div className="record-col rest">{rest} 분</div>
-      <div className="record-col total">{total} km</div>
+  const [isEditing, setIsEditing] = useState(false);
 
-      <div className="record-btns">
-        <button className="btn btn-edit">수정</button>
-        <button className="btn btn-delete" onClick={() => onDelete(id)}>
-          삭제
-        </button>
-      </div>
-    </div>
+  return isEditing ? (
+    <RecordItemEdit record={record} onCancel={() => setIsEditing(false)} />
+  ) : (
+    <RecordItemView
+      record={record}
+      total={total}
+      onEdit={() => setIsEditing(true)}
+      onDelete={onDelete}
+    />
   );
 };
 

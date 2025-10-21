@@ -25,11 +25,9 @@
   justify-content: center;
   gap: 6px;
 }
-
 .record-item:hover .record-btns {
   opacity: 1;
 }
-
 .record-btns .btn {
   padding: 6px 12px;
   font-size: 13px;

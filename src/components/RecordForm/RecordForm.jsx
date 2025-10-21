@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./RecordForm.css";
-import RecordList from "./RecordList";
+import RecordList from "../RecordList/RecordList";
 
 const INITIAL_FORM = {
   date: "",
@@ -55,10 +55,25 @@ const RecordForm = () => {
     setFormData(INITIAL_FORM);
   };
 
+  // 기록 삭제
+  const handleDelete = (id) => {
+    if (!confirm("해당 기록을 삭제하시겠습니까?")) {
+      return;
+    } else {
+      setRecords((prev) => prev.filter((r) => r.id !== id));
+      alert("삭제가 완료되었습니다.");
+    }
+  };
+
+  // 기록 수정
+  const handleSave = (updated) => {
+    setRecords((prev) => prev.map((r) => (r.id === updated.id ? updated : r)));
+  };
+
   return (
     <div>
       <form className="record-form" onSubmit={handleSubmit}>
-        <label>
+        <label className="record-label">
           <span>날짜</span>
           <input
             type="date"
@@ -66,10 +81,11 @@ const RecordForm = () => {
             value={formData.date}
             onChange={handleChange}
             required
+            className="record-input"
           />
         </label>
 
-        <label>
+        <label className="record-label">
           <span>뛴 거리 (km)</span>
           <input
             type="number"
@@ -78,10 +94,11 @@ const RecordForm = () => {
             onChange={handleChange}
             min={0}
             step={0.1}
+            className="record-input"
           />
         </label>
 
-        <label>
+        <label className="record-label">
           <span>걸은 거리 (km)</span>
           <input
             type="number"
@@ -90,23 +107,31 @@ const RecordForm = () => {
             onChange={handleChange}
             min={0}
             step={0.1}
+            className="record-input"
           />
         </label>
 
-        <label>
+        <label className="record-label">
           <span>쉬는 시간 (분)</span>
           <input
             type="number"
             name="restTime"
             value={formData.restTime}
             onChange={handleChange}
+            className="record-input"
           />
         </label>
 
-        <button type="submit">추가</button>
+        <button type="submit" className="btn btn-submit">
+          추가
+        </button>
       </form>
 
-      <RecordList records={records} />
+      <RecordList
+        records={records}
+        onDelete={handleDelete}
+        onSave={handleSave}
+      />
     </div>
   );
 };

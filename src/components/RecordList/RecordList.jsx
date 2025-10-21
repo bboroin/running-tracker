@@ -1,9 +1,9 @@
 import React, { useState, useMemo } from "react";
-import RecordItem from "./RecordItem";
+import RecordItem from "../RecordItem/RecordItem";
 import SortSelect from "./SortSelect";
 import "./RecordList.css";
 
-const RecordList = ({ records }) => {
+const RecordList = ({ records, onDelete, onSave }) => {
   const [sortOption, setSortOption] = useState("date");
 
   const sortedRecords = useMemo(() => {
@@ -46,7 +46,13 @@ const RecordList = ({ records }) => {
                 Number(record.running) + Number(record.walking)
               ).toFixed(1);
               return (
-                <RecordItem key={record.id} record={record} total={total} />
+                <RecordItem
+                  key={record.id}
+                  record={record}
+                  total={total}
+                  onDelete={onDelete}
+                  onSave={onSave}
+                />
               );
             })
           ) : (

@@ -55,6 +55,10 @@ const RecordForm = () => {
     setFormData(INITIAL_FORM);
   };
 
+  const handleDelete = (id) => {
+    setRecords((prev) => prev.filter((r) => r.id !== id));
+  };
+
   return (
     <div>
       <form className="record-form" onSubmit={handleSubmit}>
@@ -108,7 +112,7 @@ const RecordForm = () => {
         </button>
       </form>
 
-      <RecordList records={records} />
+      <RecordList records={records} onDelete={handleDelete} />
     </div>
   );
 };

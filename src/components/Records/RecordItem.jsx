@@ -1,8 +1,8 @@
 import React from "react";
 import "./RecordItem.css";
 
-const RecordItem = ({ record, total }) => {
-  const { date, running, walking, rest } = record;
+const RecordItem = ({ record, total, onDelete }) => {
+  const { id, date, running, walking, rest } = record;
   return (
     <div className="record-item">
       <div className="record-col date">{date}</div>
@@ -13,7 +13,9 @@ const RecordItem = ({ record, total }) => {
 
       <div className="record-btns">
         <button className="btn btn-edit">수정</button>
-        <button className="btn btn-delete">삭제</button>
+        <button className="btn btn-delete" onClick={() => onDelete(id)}>
+          삭제
+        </button>
       </div>
     </div>
   );

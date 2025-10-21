@@ -1,6 +1,6 @@
 import "./App.css";
 import Header from "./components/Header/Header";
-import RecordForm from "./components/Records/RecordForm";
+import RecordForm from "./components/RecordForm/RecordForm";
 
 function App() {
   return (

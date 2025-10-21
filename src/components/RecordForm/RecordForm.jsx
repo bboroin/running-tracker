@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./RecordForm.css";
-import RecordList from "./RecordList";
+import RecordList from "../RecordList/RecordList";
 
 const INITIAL_FORM = {
   date: "",

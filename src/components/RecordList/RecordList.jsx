@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import RecordItem from "./RecordItem";
+import RecordItem from "../RecordItem/RecordItem";
 import SortSelect from "./SortSelect";
 import "./RecordList.css";
 

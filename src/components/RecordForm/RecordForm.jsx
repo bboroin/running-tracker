@@ -56,7 +56,12 @@ const RecordForm = () => {
   };
 
   const handleDelete = (id) => {
-    setRecords((prev) => prev.filter((r) => r.id !== id));
+    if (!confirm("해당 기록을 삭제하시겠습니까?")) {
+      return;
+    } else {
+      setRecords((prev) => prev.filter((r) => r.id !== id));
+      alert("삭제가 완료 되었습니다.");
+    }
   };
 
   return (

@@ -3,7 +3,7 @@ import RecordItem from "../RecordItem/RecordItem";
 import SortSelect from "./SortSelect";
 import "./RecordList.css";
 
-const RecordList = ({ records, onDelete }) => {
+const RecordList = ({ records, onDelete, onSave }) => {
   const [sortOption, setSortOption] = useState("date");
 
   const sortedRecords = useMemo(() => {
@@ -51,6 +51,7 @@ const RecordList = ({ records, onDelete }) => {
                   record={record}
                   total={total}
                   onDelete={onDelete}
+                  onSave={onSave}
                 />
               );
             })

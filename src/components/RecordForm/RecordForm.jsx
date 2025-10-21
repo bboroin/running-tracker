@@ -55,13 +55,19 @@ const RecordForm = () => {
     setFormData(INITIAL_FORM);
   };
 
+  // 기록 삭제
   const handleDelete = (id) => {
     if (!confirm("해당 기록을 삭제하시겠습니까?")) {
       return;
     } else {
       setRecords((prev) => prev.filter((r) => r.id !== id));
-      alert("삭제가 완료 되었습니다.");
+      alert("삭제가 완료되었습니다.");
     }
+  };
+
+  // 기록 수정
+  const handleSave = (updated) => {
+    setRecords((prev) => prev.map((r) => (r.id === updated.id ? updated : r)));
   };
 
   return (
@@ -121,7 +127,11 @@ const RecordForm = () => {
         </button>
       </form>
 
-      <RecordList records={records} onDelete={handleDelete} />
+      <RecordList
+        records={records}
+        onDelete={handleDelete}
+        onSave={handleSave}
+      />
     </div>
   );
 };

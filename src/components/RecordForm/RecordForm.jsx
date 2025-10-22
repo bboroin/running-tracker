@@ -116,6 +116,7 @@ const RecordForm = () => {
           <input
             type="number"
             name="restTime"
+            min={0}
             value={formData.restTime}
             onChange={handleChange}
             className="record-input"

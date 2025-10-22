@@ -1,9 +1,9 @@
 .record-form {
-  display: flex;
-  gap: 15px;
-  align-items: end;
-  margin: 20px 0;
-  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin: 16px 0;
+  padding: 16px;
   width: 100%;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -12,7 +12,7 @@
 .record-label {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
 }
 
 .record-input {
@@ -20,6 +20,7 @@
   padding: 8px 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  width: 100%;
 }
 
 .btn {
@@ -38,5 +39,21 @@
 .btn-submit {
   background: linear-gradient(135deg, #00aeef, #9b5eff);
   color: white;
-  padding: 8px 15px;
+  padding: 10px 14px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .record-form {
+    grid-template-columns: 120px 1fr 1fr 1fr auto;
+    align-items: end;
+    gap: 14px;
+    margin: 18px 0;
+    padding: 18px;
+  }
+
+  .btn-submit {
+    width: auto;
+    padding: 8px 15px;
+  }
 }

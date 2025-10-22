@@ -27,6 +27,10 @@ const RecordList = ({ records, onDelete, onSave }) => {
   return (
     <>
       <div className="toolbar">
+        <p className="record-tip">
+          <span className="record-tip__label">TIP.</span> 기록 항목에 마우스를
+          올리면 <b>수정</b>, <b>삭제</b> 버튼이 표시됩니다.
+        </p>
         <SortSelect value={sortOption} onChange={setSortOption} />
       </div>
 

@@ -28,3 +28,10 @@
   display: flex;
   flex-direction: column;
 }
+
+.record-list__empty {
+  text-align: center;
+  color: #777;
+  margin: 40px 0;
+  font-size: 18px;
+}

@@ -1,32 +1,50 @@
 .record-item {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  align-items: center;
-  gap: 8px;
-  padding: 12px 16px;
-  border-bottom: 1px solid #f1f1f1;
-  background: #fff;
-}
-.record-item:hover {
-  background: #f9fbff;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+  border: 1px solid #eee;
+  border-radius: 10px;
 }
 
 .record-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid #f2f2f2;
+  border-radius: 5px;
+  background: #fafafa;
   font-size: 14px;
   color: #333;
 }
 .record-col.date {
   font-weight: 600;
 }
+.record-col.run::before {
+  content: "러닝";
+  margin-right: 10px;
+}
+.record-col.walk::before {
+  content: "걷기";
+  margin-right: 10px;
+}
+.record-col.rest::before {
+  content: "휴식";
+  margin-right: 10px;
+}
+.record-col.total::before {
+  content: "총 합";
+  margin-right: 10px;
+}
 
 .record-btns {
-  opacity: 0;
   display: flex;
+  gap: 8px;
   justify-content: center;
-  gap: 6px;
-}
-.record-item:hover .record-btns {
   opacity: 1;
+  padding-top: 4px;
 }
 .record-btns .btn {
   padding: 6px 12px;
@@ -36,31 +54,87 @@
 .btn-edit {
   background: linear-gradient(135deg, #e8f9f1, #d9f5e6);
   color: #2e7d32;
+  flex-grow: 1;
 }
 .btn-edit:hover {
   background: #00c853;
   color: #fff;
 }
-
 .btn-delete {
   background: linear-gradient(135deg, #fff1f1, #ffe7e7);
   color: #e53935;
+  flex-grow: 1;
 }
 .btn-delete:hover {
   background: #ff6b6b;
   color: #fff;
 }
-
 .btn-save {
   background: #3f3f3f8c;
-  color: white;
+  color: #fff;
+  flex-grow: 1;
+}
+.btn-cancel {
+  flex-grow: 1;
 }
 
-.editing .record-btns {
-  opacity: 1;
-}
 .editing input {
   width: 60px;
   height: 30px;
   margin-right: 3px;
+}
+
+@media (min-width: 768px) {
+  .record-list__header {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-bottom: 1px solid #eee;
+    background: #fafafa;
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+  }
+
+  .record-item {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: "date run walk rest total buttons";
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border: 0;
+    border-top: 1px solid #f1f1f1;
+    background: #fff;
+    border-radius: 0;
+    margin: 0;
+  }
+  .record-item:hover {
+    background: #f9fbff;
+  }
+
+  .record-col {
+    border: 0;
+    background: transparent;
+    padding: 0;
+  }
+
+  .record-col.date::before,
+  .record-col.run::before,
+  .record-col.walk::before,
+  .record-col.rest::before,
+  .record-col.total::before {
+    content: none;
+  }
+
+  .record-btns {
+    gap: 6px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    padding-top: 0;
+  }
+  .record-item:hover .record-btns {
+    opacity: 1;
+  }
 }
